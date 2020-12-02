@@ -18,19 +18,6 @@ const tellMe = (joke) => {
     f: '44khz_16bit_stereo',
     ssml: false
   });
-  try {
-    fetch('/.netlify/functions/voice', {
-      method: 'POST',
-      headers: {
-        'Content-Type:': 'application/json'
-      },
-      body: JSON.stringify({
-        joke: joke
-      })
-    });
-  } catch (error) {
-    console.log(error);
-  }
 };
 
 // Get the joke!
