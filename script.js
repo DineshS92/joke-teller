@@ -8,16 +8,16 @@ const toggleButton = () => {
 
 // Passing the joke to speech api
 const tellMe = (joke) => {
-  // VoiceRSS.speech({
-  //   key: "7798042e83dc4b7692aa980ba7a3e227",
-  //   src: joke,
-  //   hl: "en-us",
-  //   v: "Linda",
-  //   r: 0,
-  //   c: "mp3",
-  //   f: "44khz_16bit_stereo",
-  //   ssml: false
-  // });
+  VoiceRSS.speech({
+    key: '7798042e83dc4b7692aa980ba7a3e227',
+    src: joke,
+    hl: 'en-us',
+    v: 'Linda',
+    r: 0,
+    c: 'mp3',
+    f: '44khz_16bit_stereo',
+    ssml: false
+  });
   try {
     fetch('/.netlify/functions/voice', {
       method: 'POST',
@@ -37,16 +37,15 @@ const tellMe = (joke) => {
 const getJokes = async () => {
   let joke = '';
   try {
-    const apiUrl = 'https://api.icndb.com/jokes/random';
-    // const apiUrl =
-    //   "https://sv443.net/jokeapi/v2/joke/Miscellaneous,Dark,Pun?blacklistFlags=religious,political,racist,sexist";
+    const apiUrl =
+      'https://sv443.net/jokeapi/v2/joke/Miscellaneous,Dark,Pun?blacklistFlags=religious,political,racist,sexist';
     const res = await fetch(apiUrl);
     const data = await res.json();
-    // if (data.type === "twopart") {
-    //   joke = `${data.setup}... ${data.delivery}`;
-    // } else {
-    //   joke = data.joke;
-    // }
+    if (data.type === 'twopart') {
+      joke = `${data.setup}... ${data.delivery}`;
+    } else {
+      joke = data.joke;
+    }
     joke = data.value.joke;
     console.log(joke);
     // Text-to-speech
