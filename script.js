@@ -46,8 +46,6 @@ const getJokes = async () => {
     } else {
       joke = data.joke;
     }
-    joke = data.value.joke;
-    console.log(joke);
     // Text-to-speech
     tellMe(joke);
     // Disable button
