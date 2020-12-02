@@ -1,5 +1,5 @@
-const button = document.getElementById("button");
-const audioElement = document.getElementById("audio");
+const button = document.getElementById('button');
+const audioElement = document.getElementById('audio');
 
 // Disable/Enable Button
 const toggleButton = () => {
@@ -19,10 +19,10 @@ const tellMe = async (joke) => {
   //   ssml: false
   // });
   try {
-    await fetch("/.netlify/functions/voice", {
-      method: "POST",
+    await fetch('/.netlify/functions/voice', {
+      method: 'POST',
       headers: {
-        "Content-Type:": "application/json"
+        'Content-Type:': 'application/json'
       },
       body: JSON.stringify({
         joke: joke
@@ -35,9 +35,9 @@ const tellMe = async (joke) => {
 
 // Get the joke!
 const getJokes = async () => {
-  let joke = "";
+  let joke = '';
   try {
-    const apiUrl = "https://api.icndb.com/jokes/random";
+    const apiUrl = 'https://api.icndb.com/jokes/random';
     // const apiUrl =
     //   "https://sv443.net/jokeapi/v2/joke/Miscellaneous,Dark,Pun?blacklistFlags=religious,political,racist,sexist";
     const res = await fetch(apiUrl);
@@ -59,5 +59,5 @@ const getJokes = async () => {
 };
 
 // Eventlistener for button
-button.addEventListener("click", getJokes);
-audioElement.addEventListener("ended", toggleButton);
+button.addEventListener('click', getJokes);
+audioElement.addEventListener('ended', toggleButton);

@@ -1,3 +1,26 @@
+exports.handler = async function(event) {
+  const { joke } = JSON.parse(event.body);
+  const apiKey = process.env.API_KEY;
+
+  return {
+    statusCode: 200,
+    headers: {
+      "Content-Type": "audio/mp4"
+    },
+    body: VoiceRSS.speech({
+        key: apiKey,
+        src: joke,
+        hl: "en-us",
+        v: "Linda",
+        r: 0,
+        c: "mp3",
+        f: "44khz_16bit_stereo",
+        ssml: false
+      });
+  };
+};
+
+
 const VoiceRSS = {
   speech: function (e) {
     this._validate(e), this._request(e);
@@ -99,26 +122,4 @@ const VoiceRSS = {
     } catch (e) {}
     throw "The browser does not support HTTP request";
   }
-};
-
-exports.handler = async function(event) {
-  const { joke } = JSON.parse(event.body);
-  const apiKey = process.env.API_KEY;
-
-  return {
-    statusCode: 200,
-    headers: {
-      "Content-Type": "audio/mp4"
-    },
-    body: VoiceRSS.speech({
-        key: apiKey,
-        src: joke,
-        hl: "en-us",
-        v: "Linda",
-        r: 0,
-        c: "mp3",
-        f: "44khz_16bit_stereo",
-        ssml: false
-      });
-  };
 };
