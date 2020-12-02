@@ -103,7 +103,7 @@ const VoiceRSS = {
 
 expors.handler = async function(event) => {
   const { joke } = JSON.parse(event.body);
-  // const apiKey = process.env.API_KEY;
+  const apiKey = process.env.API_KEY;
 
   return {
     statusCode: 200,
@@ -111,7 +111,7 @@ expors.handler = async function(event) => {
       "Content-Type": "audio/mp4"
     },
     body: VoiceRSS.speech({
-        key: "7798042e83dc4b7692aa980ba7a3e227",
+        key: apiKey,
         src: joke,
         hl: "en-us",
         v: "Linda",
