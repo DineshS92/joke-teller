@@ -12,7 +12,7 @@ const tellMe = (joke) => {
     key: '7798042e83dc4b7692aa980ba7a3e227',
     src: joke,
     hl: 'en-us',
-    v: 'Linda',
+    v: 'Iva',
     r: 0,
     c: 'mp3',
     f: '44khz_16bit_stereo',
