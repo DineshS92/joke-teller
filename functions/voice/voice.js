@@ -1,4 +1,4 @@
-exports.handler = async function(event) {
+exports.handler = function(event) {
   const { joke } = JSON.parse(event.body);
   const apiKey = process.env.API_KEY;
 

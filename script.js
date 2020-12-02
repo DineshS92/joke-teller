@@ -7,7 +7,7 @@ const toggleButton = () => {
 };
 
 // Passing the joke to speech api
-const tellMe = async (joke) => {
+const tellMe = (joke) => {
   // VoiceRSS.speech({
   //   key: "7798042e83dc4b7692aa980ba7a3e227",
   //   src: joke,
@@ -19,7 +19,7 @@ const tellMe = async (joke) => {
   //   ssml: false
   // });
   try {
-    await fetch('/.netlify/functions/voice', {
+    fetch('/.netlify/functions/voice', {
       method: 'POST',
       headers: {
         'Content-Type:': 'application/json'
@@ -50,7 +50,7 @@ const getJokes = async () => {
     joke = data.value.joke;
     console.log(joke);
     // Text-to-speech
-    await tellMe(joke);
+    tellMe(joke);
     // Disable button
     toggleButton();
   } catch (error) {
