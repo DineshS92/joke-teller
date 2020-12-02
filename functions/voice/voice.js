@@ -101,7 +101,7 @@ const VoiceRSS = {
   }
 };
 
-exports.handler = async function(event) => {
+exports.handler = async function(event) {
   const { joke } = JSON.parse(event.body);
   const apiKey = process.env.API_KEY;
 
